@@ -3,7 +3,7 @@
 exports[`Home page > renders the Home Page 1`] = `
 <div>
   <div
-    class="_container_637b2f"
+    class="_container_4b21f0"
   >
     <div
       class="_navBar_1865de"
@@ -47,27 +47,24 @@ exports[`Home page > renders the Home Page 1`] = `
         </a>
       </div>
     </div>
-    <div
-      class="_content_637b2f"
+    <main
+      class="_store_4b21f0"
     >
-      <img
-        alt="store banner"
-        class="_banner_637b2f"
-        src="/src/assets/clothes-line.jpg"
-      />
-      <main
-        class="_message_637b2f"
+      <header
+        class="_heading_4b21f0"
       >
-        <p>
-          Welcome to my mock digital storefront!
-        </p>
+        Store
+      </header>
+      <div
+        class="_items_4b21f0"
+      >
         <p
-          class="_text_637b2f"
+          class="_message_4b21f0"
         >
-          Here you can shop for items by adding them to your cart and completing your transaction. You can begin by pressing on shop in the top right corner to see the store page. Once items have been added to the cart you can click on the cart icon to see them displayed there. If you change your mind about an item you can always delete it from the cart befor completing your transaction.
+          Loading items...
         </p>
-      </main>
-    </div>
+      </div>
+    </main>
   </div>
 </div>
 `;

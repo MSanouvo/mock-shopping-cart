@@ -8,14 +8,14 @@ import StorePage from "../StorePage/StorePage";
 import CartPage from "../CartPage/CartPage";
 
 describe("Home page", () => {
-  //   it("renders the Home Page", () => {
-  //     const { container } = render(
-  //       <MemoryRouter>
-  //         <HomePage />
-  //       </MemoryRouter>,
-  //     );
-  //     expect(container).toMatchSnapshot();
-  //   });
+    it("renders the Home Page", () => {
+      const { container } = render(
+        <MemoryRouter>
+          <HomePage />
+        </MemoryRouter>,
+      );
+      expect(container).toMatchSnapshot();
+    });
 
   it("renders the nav bar component", () => {
     render(
@@ -34,7 +34,7 @@ describe("Home page", () => {
         <HomePage />
       </MemoryRouter>,
     );
-    expect(screen.getByAltText("store banner")).toHaveAttribute("src", "/src/assets/gunpla_banner.jpg");
+    expect(screen.getByAltText("store banner")).toHaveAttribute("src", "/src/assets/clothes-line.jpg");
   });
 
   it("renders description", () => {
@@ -43,7 +43,7 @@ describe("Home page", () => {
         <HomePage />
       </MemoryRouter>,
     );
-    expect(screen.getByRole("main")).toHaveTextContent("Lorem Ipsum, ...");
+    expect(screen.getByRole("main")).toHaveTextContent("Welcome to my mock digital storefront!");
   });
 
   it("navigates to store page", async () => {
@@ -68,7 +68,7 @@ describe("Home page", () => {
       <MemoryRouter initialEntries={["/"]}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="/cart" element={<CartPage cart={[]} />} />
         </Routes>
       </MemoryRouter>,
     );

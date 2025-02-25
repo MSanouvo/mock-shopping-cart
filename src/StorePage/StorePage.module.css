@@ -1,0 +1,38 @@
+.container{
+    /* border: 1px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-width: 100vw;
+    overflow-y: scroll;
+}
+
+.heading{
+    font-weight: bold;
+    font-size: 2.5rem;
+    padding: 20px;
+    color: black;
+}
+
+.store{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+.items{
+    /* outline: 1px solid purple; */
+    display: grid;
+    grid-template-rows: 100px, 1fr;
+    grid-template-columns: repeat(3, 30%);
+    justify-content: center;
+    height: 500px;
+    gap: 30px;
+    grid-row: 2;
+    padding: 10px;
+}
+
+.message{
+    width: 100%;
+    text-align: center;
+}

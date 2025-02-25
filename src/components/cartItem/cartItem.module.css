@@ -1,0 +1,29 @@
+.item{
+    /* outline: 1px solid blue; */
+    display: flex;
+    justify-content: space-between;
+    width: 95vw;
+    padding: 10px;
+}
+
+.img{
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.input{
+    width: 40px;
+}
+
+.details{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.functions{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

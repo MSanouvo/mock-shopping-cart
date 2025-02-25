@@ -7,69 +7,93 @@ import CartPage from "./CartPage";
 import HomePage from "../HomePage/HomePage";
 import StorePage from "../StorePage/StorePage";
 
-describe("Home page", () => {
-    // it("renders the Home Page", () => {
-    //     const {container} = render (<StorePage />)
-    //     expect(container).toMatchSnapshot()
-    // })
+describe("Cart page", () => {
+  it("renders the Cart Page", () => {
+    const { container } = render(
+      <MemoryRouter>
+        <CartPage />
+      </MemoryRouter>,
+    );
+    expect(container).toMatchSnapshot();
+  });
 
-    it("renders the heading components", () => {
-        render(
-            <MemoryRouter>
-                <CartPage />
-            </MemoryRouter>
-        )
-        expect(screen.getByRole("heading", {name: "Home"})).toBeInTheDocument()
-        expect(screen.getByRole("heading", {name: "Shop"})).toBeInTheDocument()
-        expect(screen.getByAltText("cart icon")).toBeInTheDocument()
-        expect(screen.getByRole("heading", {name: "Shopping Cart"})).toBeInTheDocument()
-    })
+  it("renders the heading components", () => {
+    render(
+      <MemoryRouter>
+        <CartPage />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole("heading", { name: "Home" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Shop" })).toBeInTheDocument();
+    expect(screen.getByAltText("cart icon")).toBeInTheDocument();
+    expect(screen.getByText("Shopping Cart")).toBeInTheDocument();
+  });
 
-    it("renders all the item card components", () => {
-        render(
-            <MemoryRouter>
-                <CartPage />
-            </MemoryRouter>
-        )
-        expect(screen.getByRole("heading", {name: "item1"})).toBeInTheDocument()
-        expect(screen.getByRole("heading", {name: "item2"})).toBeInTheDocument()
-        expect(screen.getByRole("heading", {name: "item3"})).toBeInTheDocument()
-        expect(screen.getAllByRole("spinbutton").length).toEqual(3)
-        expect(screen.getAllByRole("button", {name: 'Delete'}).length).toEqual(3)
-    })
+  it("renders message when cart is empty", () => {
+    render(
+      <MemoryRouter>
+        <CartPage />
+      </MemoryRouter>,
+    );
+    expect(screen.getByText("Add items to cart"));
+  });
 
-    it("navigates to home page", async () => {
-        render(
-          <MemoryRouter initialEntries={["/cart"]}>
-            <Routes>
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/" element={<HomePage />} />
-            </Routes>
-          </MemoryRouter>,
-        );
-    
-        const user = userEvent.setup();
-        const homeLink = screen.getByRole("link", { name: "Home" });
-    
-        await user.click(homeLink);
-        expect(screen.getByText("Lorem Ipsum, ...")).toBeInTheDocument();
-      });
-    
-      it("navigates to store page", async () => {
-        render(
-          <MemoryRouter initialEntries={["/cart"]}>
-            <Routes>
-              <Route path="/store" element={<StorePage />} />
-              <Route path="/cart" element={<CartPage />} />
-            </Routes>
-          </MemoryRouter>,
-        );
-    
-        const user = userEvent.setup();
-        const link = screen.getByRole("link", { name: "Shop" });
-    
-        await user.click(link);
-        expect(screen.getByText("Store")).toBeInTheDocument();
-      });
+  it("renders item when cart is not empty", () => {
+    render(
+      <MemoryRouter>
+        <CartPage cart={[{ name: "item", count: 1 }]} />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole("heading", { name: "item" })).toBeInTheDocument();
+    expect(screen.getByDisplayValue("1")).toBeInTheDocument();
+  });
 
-})
+  it("deletes item on clicking delete button", async () => {
+    const user = userEvent.setup();
+    render(
+      <MemoryRouter>
+        <CartPage cart={[{ name: "item", count: 1 }]} />
+      </MemoryRouter>,
+    );
+
+    const link = screen.getByText("Delete");
+    await user.click(link);
+    expect(screen.getByText("Add items to cart"));
+  });
+
+  it("navigates to home page", async () => {
+    render(
+      <MemoryRouter initialEntries={["/cart"]}>
+        <Routes>
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const user = userEvent.setup();
+    const homeLink = screen.getByRole("link", { name: "Home" });
+
+    await user.click(homeLink);
+    expect(
+      screen.getByText("Welcome to my mock digital storefront!"),
+    ).toBeInTheDocument();
+  });
+
+  it("navigates to store page", async () => {
+    render(
+      <MemoryRouter initialEntries={["/cart"]}>
+        <Routes>
+          <Route path="/store" element={<StorePage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const user = userEvent.setup();
+    const link = screen.getByRole("link", { name: "Shop" });
+
+    await user.click(link);
+    expect(screen.getByText("Store")).toBeInTheDocument();
+  });
+});
