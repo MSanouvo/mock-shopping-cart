@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Home page > renders the Home Page 1`] = `
+<div>
+  <div>
+    <div
+      class="_navBar_1865de"
+    >
+      <a
+        data-discover="true"
+        href="/"
+      >
+        <h1>
+          Home
+        </h1>
+      </a>
+      <a
+        data-discover="true"
+        href="/store"
+      >
+        <h3>
+          Shop
+        </h3>
+      </a>
+      <a
+        data-discover="true"
+        href="/cart"
+      >
+        <h3>
+          Cart
+        </h3>
+      </a>
+    </div>
+    <img
+      alt=""
+      src=""
+    />
+    <main>
+      Lorem Ipsum, ...
+    </main>
+  </div>
+</div>
+`;
