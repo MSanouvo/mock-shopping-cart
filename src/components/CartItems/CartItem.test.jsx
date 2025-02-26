@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import CartItem from "./cartItem";
+import CartItem from "./CartItem";
 
 describe('Cart Item component', () => {
     it('renders cart item component', () => {

@@ -1,5 +1,5 @@
 import NavBar from "../components/Navbar/NavBar";
-import ItemCard from "../components/itemCard/itemCard";
+import ItemCard from "../components/StoreItems/StoreItem";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import styles from "./StorePage.module.css";

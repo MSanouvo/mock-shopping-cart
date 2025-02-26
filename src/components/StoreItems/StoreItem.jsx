@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Button from "../button/button";
-import styles from "./itemCard.module.css";
+import styles from "./StoreItem.module.css";
 
-function ItemCard(props) {
+function StoreItem(props) {
   const [count, setCount] = useState(props.count);
   const handleChange = (e) => {
     setCount(e.target.value);
@@ -33,7 +33,7 @@ function ItemCard(props) {
   );
 }
 
-ItemCard.propTypes = {
+StoreItem.propTypes = {
   name: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
   src: PropTypes.element,
@@ -41,4 +41,4 @@ ItemCard.propTypes = {
   alt: PropTypes.string
 };
 
-export default ItemCard;
+export default StoreItem;

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Button from "../button/button";
-import styles from "./cartItem.module.css";
+import styles from "./CartItem.module.css";
 
 function CartItem(props) {
   const [count, setCount] = useState(props.count);

@@ -1,5 +1,5 @@
 import NavBar from "../components/Navbar/NavBar";
-import CartItem from "../components/cartItem/cartItem";
+import CartItem from "../components/CartItems/CartItem";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import styles from "./CartPage.module.css";
