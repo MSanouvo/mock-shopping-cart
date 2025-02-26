@@ -1,11 +1,9 @@
-import NavBar from "../components/Navbar/NavBar";
 import Banner from "../assets/clothes-line.jpg";
 import styles from "./HomePage.module.css";
 
 function HomePage() {
   return (
     <div className={styles.container}>
-      <NavBar />
       <div className={styles.content}>
         <img className={styles.banner} src={Banner} alt="store banner" />
         <main className={styles.message}>
@@ -20,7 +18,6 @@ function HomePage() {
           </p>
         </main>
       </div>
-      {/* Could turn this into a component if we want to reuse it on the store page */}
     </div>
   );
 }

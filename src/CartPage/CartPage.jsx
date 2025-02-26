@@ -6,7 +6,8 @@ import styles from "./CartPage.module.css";
 import Button from "../components/button/button";
 
 CartPage.propTypes = {
-  cart: PropTypes.array
+  cart: PropTypes.array,
+  total: PropTypes.number
 }
 
 CartPage.defaultProps = {
@@ -28,7 +29,7 @@ function CartPage(props) {
   };
   return (
     <div className={styles.container}>
-      <NavBar />
+      {/* <NavBar total={props.total} /> */}
       <main className={styles.cart}>
         <header className={styles.heading}>Shopping Cart</header>
         {cart.length != 0 ? (

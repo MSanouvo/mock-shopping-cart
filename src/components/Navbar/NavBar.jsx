@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import Cart from "../../assets/cart-icon-white.svg";
 
-function NavBar() {
+function NavBar(props) {
   return (
     <div className={styles.navBar}>
       <div className={styles.home}>
@@ -20,6 +20,7 @@ function NavBar() {
           </button>
         </Link>
       </div>
+      {props.total != 0 && <p className={styles.count}>{props.total}</p>}
     </div>
   );
 }

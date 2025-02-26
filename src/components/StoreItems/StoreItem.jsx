@@ -18,7 +18,7 @@ function StoreItem(props) {
     <main className={styles.item}>
       <div className={styles.details}>
         <img className={styles.img} src={props.src} alt={props.alt} />
-        <h2>{props.name}</h2>
+        <h2 className={styles.name}>{props.name}</h2>
       </div>
       <div className={styles.functions}>
         <input
@@ -36,7 +36,7 @@ function StoreItem(props) {
 StoreItem.propTypes = {
   name: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
-  src: PropTypes.element,
+  src: PropTypes.string,
   callItem: PropTypes.func,
   alt: PropTypes.string
 };

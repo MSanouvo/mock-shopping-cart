@@ -23,9 +23,7 @@ describe("Cart page", () => {
         <CartPage />
       </MemoryRouter>,
     );
-    expect(screen.getByRole("heading", { name: "Home" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Shop" })).toBeInTheDocument();
-    expect(screen.getByAltText("cart icon")).toBeInTheDocument();
+
     expect(screen.getByText("Shopping Cart")).toBeInTheDocument();
   });
 
@@ -61,39 +59,41 @@ describe("Cart page", () => {
     expect(screen.getByText("Add items to cart"));
   });
 
-  it("navigates to home page", async () => {
-    render(
-      <MemoryRouter initialEntries={["/cart"]}>
-        <Routes>
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      </MemoryRouter>,
-    );
 
-    const user = userEvent.setup();
-    const homeLink = screen.getByRole("link", { name: "Home" });
+  //Obselete Tests after removing navbar from component
+  // it("navigates to home page", async () => {
+  //   render(
+  //     <MemoryRouter initialEntries={["/cart"]}>
+  //       <Routes>
+  //         <Route path="/cart" element={<CartPage />} />
+  //         <Route path="/" element={<HomePage />} />
+  //       </Routes>
+  //     </MemoryRouter>,
+  //   );
 
-    await user.click(homeLink);
-    expect(
-      screen.getByText("Welcome to my mock digital storefront!"),
-    ).toBeInTheDocument();
-  });
+  //   const user = userEvent.setup();
+  //   const homeLink = screen.getByRole("link", { name: "Home" });
 
-  it("navigates to store page", async () => {
-    render(
-      <MemoryRouter initialEntries={["/cart"]}>
-        <Routes>
-          <Route path="/store" element={<StorePage />} />
-          <Route path="/cart" element={<CartPage />} />
-        </Routes>
-      </MemoryRouter>,
-    );
+  //   await user.click(homeLink);
+  //   expect(
+  //     screen.getByText("Welcome to my mock digital storefront!"),
+  //   ).toBeInTheDocument();
+  // });
 
-    const user = userEvent.setup();
-    const link = screen.getByRole("link", { name: "Shop" });
+  // it("navigates to store page", async () => {
+  //   render(
+  //     <MemoryRouter initialEntries={["/cart"]}>
+  //       <Routes>
+  //         <Route path="/store" element={<StorePage />} />
+  //         <Route path="/cart" element={<CartPage />} />
+  //       </Routes>
+  //     </MemoryRouter>,
+  //   );
 
-    await user.click(link);
-    expect(screen.getByText("Store")).toBeInTheDocument();
-  });
+  //   const user = userEvent.setup();
+  //   const link = screen.getByRole("link", { name: "Shop" });
+
+  //   await user.click(link);
+  //   expect(screen.getByText("Store")).toBeInTheDocument();
+  // });
 });

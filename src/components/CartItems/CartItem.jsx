@@ -37,7 +37,7 @@ CartItem.propTypes = {
   name: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
   deleteItem: PropTypes.func,
-  src: PropTypes.element
+  src: PropTypes.string
 };
 
 export default CartItem;

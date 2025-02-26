@@ -27,13 +27,13 @@ describe("Home page", () => {
         <StorePage />
       </MemoryRouter>,
     );
-    expect(screen.getByRole("heading", { name: "Home" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Shop" })).toBeInTheDocument();
-    expect(screen.getByAltText("cart icon")).toBeInTheDocument();
+    // expect(screen.getByRole("heading", { name: "Home" })).toBeInTheDocument();
+    // expect(screen.getByRole("heading", { name: "Shop" })).toBeInTheDocument();
+    // expect(screen.getByAltText("cart icon")).toBeInTheDocument();
     expect(screen.getByText("Store")).toBeInTheDocument();
   });
 
-  it("renders all the item card components", async () => {
+  it("renders all the item card components (12 total)", async () => {
     render(
       <MemoryRouter>
         <StorePage />
@@ -66,48 +66,49 @@ describe("Home page", () => {
       screen.getByRole("heading", { name: "Mens Cotton Jacket" }),
     ).toBeInTheDocument();
     expect(screen.getByAltText("Mens Cotton Jacket")).toBeInTheDocument();
-
-    expect(screen.getAllByRole("spinbutton").length).toEqual(3);
+    //Not name checking every single one
+    expect(screen.getAllByRole("spinbutton").length).toEqual(12);
     expect(
       screen.getAllByRole("button", { name: "Add to Cart" }).length,
-    ).toEqual(3);
+    ).toEqual(12);
   });
 
-  it("navigates to home page", async () => {
-    render(
-      <MemoryRouter initialEntries={["/store"]}>
-        <Routes>
-          <Route path="/store" element={<StorePage />} />
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      </MemoryRouter>,
-    );
+  //Obselete after removing navbar from component
+  // it("navigates to home page", async () => {
+  //   render(
+  //     <MemoryRouter initialEntries={["/store"]}>
+  //       <Routes>
+  //         <Route path="/store" element={<StorePage />} />
+  //         <Route path="/" element={<HomePage />} />
+  //       </Routes>
+  //     </MemoryRouter>,
+  //   );
 
-    const user = userEvent.setup();
-    const homeLink = screen.getByRole("link", { name: "Home" });
+  //   const user = userEvent.setup();
+  //   const homeLink = screen.getByRole("link", { name: "Home" });
 
-    await user.click(homeLink);
-    expect(
-      screen.getByText("Welcome to my mock digital storefront!"),
-    ).toBeInTheDocument();
-  });
+  //   await user.click(homeLink);
+  //   expect(
+  //     screen.getByText("Welcome to my mock digital storefront!"),
+  //   ).toBeInTheDocument();
+  // });
 
-  it("navigates to cart page", async () => {
-    render(
-      <MemoryRouter initialEntries={["/store"]}>
-        <Routes>
-          <Route path="/store" element={<StorePage />} />
-          <Route path="/cart" element={<CartPage cart={[]} />} />
-        </Routes>
-      </MemoryRouter>,
-    );
+  // it("navigates to cart page", async () => {
+  //   render(
+  //     <MemoryRouter initialEntries={["/store"]}>
+  //       <Routes>
+  //         <Route path="/store" element={<StorePage />} />
+  //         <Route path="/cart" element={<CartPage cart={[]} />} />
+  //       </Routes>
+  //     </MemoryRouter>,
+  //   );
 
-    const user = userEvent.setup();
-    const link = screen.getByAltText("cart icon");
+  //   const user = userEvent.setup();
+  //   const link = screen.getByAltText("cart icon");
 
-    await user.click(link);
-    expect(screen.getByText("Shopping Cart")).toBeInTheDocument();
-  });
+  //   await user.click(link);
+  //   expect(screen.getByText("Shopping Cart")).toBeInTheDocument();
+  // });
 
   it("has working add to cart button", async () => {
     const mock = vi.fn();
