@@ -1,7 +1,12 @@
 import NavBar from "../components/Navbar/NavBar";
 import ItemCard from "../components/itemCard/itemCard";
+import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import styles from "./StorePage.module.css";
+
+StorePage.propTypes = {
+  callItem: PropTypes.func
+}
 
 function StorePage(props) {
   const [inventory, setInventory] = useState(null);
@@ -9,7 +14,7 @@ function StorePage(props) {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/")
       .then((res) => res.json())
-      .then((res) => setInventory(res.splice(0, 3)), console.log(inventory));
+      .then((res) => setInventory(res.splice(0, 3)));
   }, []);
 
   return (
@@ -21,7 +26,7 @@ function StorePage(props) {
           {inventory != null ? (
             inventory.map((item, index) => {
               return (
-                <div>
+                <div key={index}>
                   <ItemCard
                     key={index}
                     name={item.title}

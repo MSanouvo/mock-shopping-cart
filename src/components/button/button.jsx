@@ -7,6 +7,7 @@ function Button(props) {
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
+  handleClick: PropTypes.func
 };
 
 export default Button;

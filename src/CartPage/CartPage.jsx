@@ -1,8 +1,13 @@
 import NavBar from "../components/Navbar/NavBar";
 import CartItem from "../components/cartItem/cartItem";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import styles from "./CartPage.module.css";
 import Button from "../components/button/button";
+
+CartPage.propTypes = {
+  cart: PropTypes.array
+}
 
 CartPage.defaultProps = {
   cart: [],
@@ -29,7 +34,7 @@ function CartPage(props) {
         {cart.length != 0 ? (
           cart.map((item, index) => {
             return (
-              <div className={styles.cartItems}>
+              <div key={index} className={styles.cartItems}>
                 <CartItem
                   key={index}
                   name={item.name}

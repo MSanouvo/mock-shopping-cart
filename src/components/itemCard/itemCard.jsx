@@ -36,6 +36,9 @@ function ItemCard(props) {
 ItemCard.propTypes = {
   name: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
+  src: PropTypes.element,
+  callItem: PropTypes.func,
+  alt: PropTypes.string
 };
 
 export default ItemCard;
