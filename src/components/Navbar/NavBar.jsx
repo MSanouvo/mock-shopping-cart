@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import Cart from "../../assets/cart-icon-white.svg";
+import PropTypes from "prop-types";
+
+NavBar.propTypes = {
+  total: PropTypes.number
+}
 
 function NavBar(props) {
   return (

@@ -1,11 +1,8 @@
 import { describe, it, expect } from "vitest";
-import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
-import StorePage from "../StorePage/StorePage";
-import CartPage from "../CartPage/CartPage";
+
 
 describe("Home page", () => {
     it("renders the Home Page", () => {

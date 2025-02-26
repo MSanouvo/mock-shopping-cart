@@ -1,4 +1,3 @@
-import NavBar from "../components/Navbar/NavBar";
 import CartItem from "../components/CartItems/CartItem";
 import PropTypes from "prop-types";
 import { useState } from "react";
@@ -29,7 +28,6 @@ function CartPage(props) {
   };
   return (
     <div className={styles.container}>
-      {/* <NavBar total={props.total} /> */}
       <main className={styles.cart}>
         <header className={styles.heading}>Shopping Cart</header>
         {cart.length != 0 ? (

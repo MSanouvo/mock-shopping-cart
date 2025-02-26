@@ -5,11 +5,9 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Route, Routes } from "react-router-dom";
 import { MemoryRouter } from "react-router-dom";
 import StorePage from "./StorePage";
-import HomePage from "../HomePage/HomePage";
-import CartPage from "../CartPage/CartPage";
+
 
 describe("Home page", () => {
   it("renders the Home Page", () => {
